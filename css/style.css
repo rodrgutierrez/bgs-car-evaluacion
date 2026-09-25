@@ -1,0 +1,51 @@
+/* Variables de colores corporativos BGS Car */
+:root {
+    --bg-dark: #1a1a1a;
+    --bgs-orange: #ff5e00;
+    --bgs-orange-hover: #cc4b00;
+}
+
+/* ==========================================================
+   CLASES PERSONALIZADAS BGS CAR (Código Limpio)
+   ========================================================== */
+
+/* Textos y Bordes */
+.text-bgs {
+    color: var(--bgs-orange);
+}
+
+.border-bgs {
+    border-color: var(--bgs-orange) !important; /* Mantenemos este solo si el borde de Bootstrap es muy terco */
+}
+
+/* Botón Sólido Principal */
+.btn-bgs {
+    background-color: var(--bgs-orange);
+    border-color: var(--bgs-orange);
+    color: white;
+}
+
+.btn-bgs:hover {
+    background-color: var(--bgs-orange-hover);
+    border-color: var(--bgs-orange-hover);
+    color: white;
+}
+
+/* Botón con Borde (Outline) */
+.btn-outline-bgs {
+    color: var(--bgs-orange);
+    border: 1px solid var(--bgs-orange);
+    background-color: transparent;
+}
+
+.btn-outline-bgs:hover {
+    background-color: var(--bgs-orange);
+    color: white;
+}
+
+/* Tamaño del logo en la barra de navegación */
+.logo-bgs {
+    height: 60px; /* Puedes subir o bajar este número según cómo se vea tu imagen */
+    width: auto;
+    object-fit: contain;
+}
