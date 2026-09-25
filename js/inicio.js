@@ -1,4 +1,3 @@
-// 1. Array de Objetos (Nuestro Catálogo de Vehículos)
 const vehiculosDestacados = [
     {
         id: 1,
@@ -29,16 +28,12 @@ const vehiculosDestacados = [
     }
 ];
 
-// 2. Función para renderizar los vehículos en el HTML
 function cargarDestacados() {
     const contenedor = document.getElementById('contenedor-destacados');
     
-    // Limpiamos el contenedor (borramos lo que haya en el HTML)
     contenedor.innerHTML = '';
 
-    // Recorremos el arreglo y creamos las tarjetas
     vehiculosDestacados.forEach(auto => {
-        // Formato de moneda chilena
         const precioCLP = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(auto.precioDia);
 
         const tarjeta = `
@@ -63,18 +58,14 @@ function cargarDestacados() {
     });
 }
 
-// 3. Cuando la página cargue, ejecutamos la función
 document.addEventListener('DOMContentLoaded', () => {
     cargarDestacados();
 });
 
-// Función temporal para el botón
 function rentarAuto(id) {
-    // Buscamos toda la información del auto usando su ID
     const autoSeleccionado = vehiculosDestacados.find(auto => auto.id === id);
     
     if(autoSeleccionado) {
-        // Llamamos a la función que creamos en carrito.js
         agregarAlCarrito(autoSeleccionado);
     }
 }
