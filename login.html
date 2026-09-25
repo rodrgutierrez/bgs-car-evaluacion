@@ -53,7 +53,7 @@
                             <label for="apellido" class="form-label text-white-50">Apellido</label>
                             <input type="text" class="form-control bg-dark text-light border-secondary" id="apellido" placeholder="Ej: Pérez">
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="rut" class="form-label text-white-50">RUT (Sin puntos y con guion)</label>
                             <input type="text" class="form-control bg-dark text-light border-secondary" id="rut" placeholder="Ej: 12345678-9">
@@ -66,7 +66,10 @@
 
                         <div class="mb-4">
                             <label for="password" class="form-label text-white-50">Contraseña</label>
-                            <input type="password" class="form-control bg-dark text-light border-secondary" id="password" placeholder="Mínimo 6 caracteres">
+                            <input type="password" id="password" class="form-control bg-dark text-light border-secondary" placeholder="Ej: 123456">
+                            <div class="form-text text-white-50 small mt-1">
+                                <i class="bi bi-info-circle me-1"></i> La contraseña debe tener entre 4 y 10 caracteres.
+                            </div>
                         </div>
 
                         <button type="button" id="btn-login" class="btn btn-bgs w-100 fw-bold py-2">Crear Cuenta / Ingresar</button>
