@@ -1,4 +1,4 @@
-const flotaCompleta = [
+const autosPorDefecto = [
     { id: 1, marca: "Toyota", modelo: "Camry 2026", categoria: "sedan", transmision: "Automático", precioDia: 59500, imagen: "assets/img/camry.png" },
     { id: 2, marca: "Ford", modelo: "Mustang GT", categoria: "deportivo", transmision: "Manual", precioDia: 99900, imagen: "assets/img/mustang.png" },
     { id: 3, marca: "Tesla", modelo: "Model 3", categoria: "sedan", transmision: "Automático", precioDia: 109000, imagen: "assets/img/tesla.png" },
@@ -6,6 +6,13 @@ const flotaCompleta = [
     { id: 5, marca: "Volkswagen", modelo: "Passat", categoria: "sedan", transmision: "Manual", precioDia: 49000, imagen: "assets/img/passat.png" },
     { id: 6, marca: "RAM", modelo: "1500", categoria: "camioneta", transmision: "Automático", precioDia: 75000, imagen: "assets/img/ram.png" }
 ];
+
+if (localStorage.getItem('bgs_flota') === null) {
+    localStorage.setItem('bgs_flota', JSON.stringify(autosPorDefecto));
+}
+
+
+let flotaCompleta = JSON.parse(localStorage.getItem('bgs_flota'));
 
 function renderizarFlota(autosAMostrar = flotaCompleta) {
     const contenedor = document.getElementById('contenedor-flota');

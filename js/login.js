@@ -51,10 +51,19 @@ botonLogin.addEventListener("click", function() {
         return;
     }
 
-    alert(`¡Bienvenido/a a BGS Car, ${nombre}!`);
-    
+
     localStorage.setItem("bgs_usuario", nombre);
-    
-    document.getElementById("formulario-login").reset();
-    window.location.href = "index.html";
+
+
+    if (correo === "admin@bgscar.cl") {
+        localStorage.setItem("rol_usuario", "admin");
+        alert(`¡Bienvenido Administrador/a ${nombre}! Redirigiendo al panel de control...`);
+        document.getElementById("formulario-login").reset();
+        window.location.href = "admin.html";
+    } else {
+        localStorage.setItem("rol_usuario", "cliente");
+        alert(`¡Bienvenido/a a BGS Car, ${nombre}!`);
+        document.getElementById("formulario-login").reset();
+        window.location.href = "index.html";
+    }
 });

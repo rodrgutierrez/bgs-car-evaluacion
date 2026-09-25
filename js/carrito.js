@@ -41,6 +41,14 @@ function verificarUsuario() {
             botonLoginNav.classList.remove("btn-outline-bgs");
             botonLoginNav.classList.add("btn-bgs");
             botonLoginNav.href = "#"; 
+
+            botonLoginNav.onclick = function() {
+                if (confirm("¿Deseas cerrar sesión?")) {
+                    localStorage.removeItem("bgs_usuario");
+                    localStorage.removeItem("rol_usuario");
+                    window.location.reload();
+                }
+            };
         }
     }
 }
