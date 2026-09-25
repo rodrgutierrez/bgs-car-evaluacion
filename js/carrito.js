@@ -1,20 +1,23 @@
 let carrito = JSON.parse(localStorage.getItem('bgs_carrito')) || [];
 
-function agregarAlCarrito(vehiculo) {
-    const autoExistente = carrito.find(item => item.id === vehiculo.id);
+function agregarAlCarrito(producto) {
+    const diasReserva = parseInt(localStorage.getItem('bgs_dias_reserva')) || 1;
+
+    const existe = carrito.find(item => item.id === producto.id);
     
-    if (autoExistente) {
-        autoExistente.cantidad++;
+    if (existe) {
+        existe.cantidad = diasReserva;
     } else {
-        vehiculo.cantidad = 1;
-        carrito.push(vehiculo);
+        carrito.push({
+            ...producto,
+            cantidad: diasReserva
+        });
     }
 
     localStorage.setItem('bgs_carrito', JSON.stringify(carrito));
-    
     actualizarContadorCarrito();
     
-    alert(`¡${vehiculo.marca} ${vehiculo.modelo} se agregó a tu reserva!`);
+    alert(`¡${producto.marca} ${producto.modelo} agregado a tu reserva por ${diasReserva} día(s)!`);
 }
 
 function actualizarContadorCarrito() {

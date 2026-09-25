@@ -69,3 +69,36 @@ function rentarAuto(id) {
         agregarAlCarrito(autoSeleccionado);
     }
 }
+
+const formBusqueda = document.getElementById('busqueda-form');
+
+if (formBusqueda !== null) {
+    formBusqueda.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const fechaRetiro = document.getElementById('fecha-retiro').value;
+        const fechaDevolucion = document.getElementById('fecha-devolucion').value;
+        
+        let diasCalculados = 1;
+        
+
+        if (fechaRetiro !== "" && fechaDevolucion !== "") {
+            const inicio = new Date(fechaRetiro);
+            const fin = new Date(fechaDevolucion);
+            
+            const diferenciaMs = fin - inicio;
+            
+            const dias = Math.ceil(diferenciaMs / (1000 * 60 * 60 * 24));
+            
+            if (dias > 0) {
+                diasCalculados = dias;
+            } else {
+                alert("La fecha de devolución debe ser posterior a la fecha de retiro. Se calculará por 1 día por defecto.");
+            }
+        }
+
+        localStorage.setItem('bgs_dias_reserva', diasCalculados);
+        
+        window.location.href = "flota.html";
+    });
+}
