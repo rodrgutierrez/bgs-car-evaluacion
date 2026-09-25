@@ -28,3 +28,24 @@ function actualizarContadorCarrito() {
 document.addEventListener('DOMContentLoaded', () => {
     actualizarContadorCarrito();
 });
+
+// Función para mostrar el nombre del usuario si ya inició sesión
+function verificarUsuario() {
+    const usuarioActual = localStorage.getItem('bgs_usuario');
+    
+    if (usuarioActual !== null) {
+        const botonLoginNav = document.getElementById('enlace-login');
+        
+        if (botonLoginNav !== null) {
+            botonLoginNav.innerHTML = '<i class="bi bi-person-check-fill"></i> Hola, ' + usuarioActual;
+            botonLoginNav.classList.remove("btn-outline-bgs");
+            botonLoginNav.classList.add("btn-bgs");
+            botonLoginNav.href = "#"; 
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    actualizarContadorCarrito();
+    verificarUsuario();
+});
