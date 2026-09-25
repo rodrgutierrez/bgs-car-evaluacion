@@ -70,5 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Función temporal para el botón
 function rentarAuto(id) {
-    alert("Próximamente: Auto " + id + " agregado al carrito usando LocalStorage");
+    // Buscamos toda la información del auto usando su ID
+    const autoSeleccionado = vehiculosDestacados.find(auto => auto.id === id);
+    
+    if(autoSeleccionado) {
+        // Llamamos a la función que creamos en carrito.js
+        agregarAlCarrito(autoSeleccionado);
+    }
 }
